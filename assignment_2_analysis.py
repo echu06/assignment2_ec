@@ -147,3 +147,29 @@ with PdfPages('descriptive_plots.pdf') as pdf:
     pdf.savefig()
     plot.close()
 
+
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
+
+
+# Running a typical OLS model
+ols_model = ols('body_mass_g ~ C(species) * C(year) + island', 
+                data=penguins).fit()
+print(ols_model.summary2())
+
+
+# If we want anova tables 
+# anova_table = sm.stats.anova_lm(ols_model, typ=2)
+# print(anova_table)
+
+# Now running a fixed effects model:
+
+fef_model_1 = ols('body_mass_g ~ C(island) + C(species) + C(year)', 
+                data = penguins).fit()
+print(fef_model_1.summary2())
+
+# and adding in another variable
+fef_model_2 = ols('body_mass_g ~ C(island) +  C(species) + C(year) + C(sex)', 
+                data = penguins).fit()
+print(fef_model_2.summary2())
+
