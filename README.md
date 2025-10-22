@@ -11,3 +11,5 @@ To run the code, make sure you have python installed, the appropriate packages, 
 pip install r- requirements.txt 
 
 to install all of the packages and their version into your virtual environment. Running the script as normal should be able to generate all of the graphs and save the output to your directory.
+
+This looks good
