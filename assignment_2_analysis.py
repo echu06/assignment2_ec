@@ -174,7 +174,7 @@ fef_model_2 = ols('body_mass_g ~ C(island) +  C(species) + C(year) + C(sex)',
 print(fef_model_2.summary2())
 
 #Add Scatterplot of bill length vs body mass
-df.plot.scatter(x='bill_length_mm', y='body_mass_g', title='Bill Length vs Body Mass')
+penguins.plot.scatter(x='bill_length_mm', y='body_mass_g', title='Bill Length vs Body Mass')
 plt.tight_layout()
 plt.savefig("penguin_scatterplot.png")
 
